@@ -1,0 +1,27 @@
+{
+  "name": "capstone-4",
+  "version": "1.0.0",
+  "description": "Capstone project built on using the Express/Node.js platform, with the Axios HTTP client. The website should interact with the chosen API, retrieve data, and present it in a user-friendly manner.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackzheng-cs/Capstone-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jackzheng-cs/Capstone-4/issues"
+  },
+  "homepage": "https://github.com/jackzheng-cs/Capstone-4#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
