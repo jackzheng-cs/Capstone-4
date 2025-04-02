@@ -1,0 +1,229 @@
+body {
+  display: flex;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100vh;
+
+  /* border: solid black; */
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  gap: 10px;
+  background-color: #ea7e5f;
+  /* background: linear-gradient(270deg, #f99a7e 0.02%, #f9ad6a 99.98%); */
+}
+
+h1 {
+  margin: 0;
+  font-family: Inter;
+  color: white;
+}
+
+.form-group {
+  display: flex;
+  width: 530px;
+  height: 54px;
+  padding: 0;
+
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.form-group input {
+  margin-left: 10px;
+  width: 100%;
+  background: inherit;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 200%; /* 36px */
+  border-radius: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+#content {
+  padding: 20px;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: scroll;
+}
+
+h2 {
+  margin: 0;
+  font-family: Inter;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+#recipes {
+  margin: 0;
+  padding: 0;
+}
+
+#recipesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px; /* Space between the cards */
+  margin: 0;
+  padding: 0;
+  list-style-type: none; /* Remove bullet points */
+}
+
+#recipeCards {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#recipeCards:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#recipes img {
+  width: 100%; /* Make image responsive */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#recipes h3 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#recipes p {
+  font-weight: 500;
+  color: #555;
+  margin: 5px 0;
+  font-size: 1.5rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.list li {
+  display: flex;
+  margin: 0;
+  padding: 4px 11px;
+  gap: 10px;
+  width: fit-content;
+  height: fit-content;
+
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  border-radius: 10px;
+}
+
+.has li {
+  background: #ea7e5f;
+}
+
+.needs li {
+  background: #c8c8c8;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 20px;
+  gap: 20px;
+
+  overflow: scroll;
+  background-color: #ffffff;
+  /* border-radius: 20px 0 0 20px; */
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+
+  /* border: solid black; */
+}
+
+.card {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+h3 {
+  margin: 0;
+  color: #424242;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+p {
+  margin: 0;
+}
+
+.card ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 0 0;
+  padding: 0;
+  gap: 10px;
+}
+
+.card li {
+  display: flex;
+  margin: 0;
+  padding: 4px 11px;
+  gap: 10px;
+
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  border-radius: 10px;
+  background: #ea7e5f;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: rgb(42, 42, 42);
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.deleteBtn:hover {
+  color: darkred;
+}

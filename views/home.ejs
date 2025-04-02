@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&family=Krona+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="imgs/utensils.png" alt="Fork and Spoon image" />
+        <h1>Quickly</h1>
+      </header>
+
+      <section>
+        <h2>Create Delicious <span>Recipes</span> in <span>Seconds</span>!</h2>
+
+        <p>
+          Enter any ingredients you have on hand into the field below. Watch it
+          generate a healthy and hearty meal within seconds!
+        </p>
+
+        <form action="/submit" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              id="ingredientInput"
+              name="ingredients"
+              placeholder="Enter Here..."
+            />
+
+            <button type="submit" id="addButton">Add</button>
+          </div>
+        </form>
+
+        <a href="recipes" class="cook">Let's Cook!</a>
+      </section>
+
+      <div class="image">
+        <img src="imgs/food.png" alt="Pan of Seafood" />
+      </div>
+    </main>
+
+    <aside>
+      <section>
+        <article class="protein card">
+          <h3>Proteins</h3>
+          <ul id="protein-list">
+            <% categorizedIngredients.Proteins.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Proteins" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+
+        <article class="vegetable card">
+          <h3>Vegetables</h3>
+          <ul id="vegetable-list">
+            <% categorizedIngredients.Vegetables.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Vegetables" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+
+        <article class="carbohydrate card">
+          <h3>Carbohydrates</h3>
+          <ul id="carbohydrate-list">
+            <% categorizedIngredients.Carbohydrates.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Carbohydrates" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+
+        <article class="aromatics card">
+          <h3>Aromatics</h3>
+          <ul id="aromatics-list">
+            <% categorizedIngredients.Aromatics.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Aromatics" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+
+        <article class="seasoning card">
+          <h3>Seasonings</h3>
+          <ul id="seasonings-list">
+            <% categorizedIngredients.Seasonings.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Seasonings" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+
+        <article class="fat card">
+          <h3>Oils & Fats</h3>
+          <ul id="fat-list">
+            <% categorizedIngredients.Fats.forEach(ingredient => { %>
+            <li>
+              <%= ingredient %>
+              <form
+                action="/delete-ingredient"
+                method="POST"
+                class="deleteForm"
+              >
+                <input
+                  type="hidden"
+                  name="ingredient"
+                  value="<%= ingredient %>"
+                />
+                <input type="hidden" name="category" value="Fats" />
+                <button type="submit" class="deleteBtn">x</button>
+              </form>
+            </li>
+            <% }); %>
+          </ul>
+        </article>
+      </section>
+    </aside>
+
+    <script src="main.js"></script>
+  </body>
+</html>

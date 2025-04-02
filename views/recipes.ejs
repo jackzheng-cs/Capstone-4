@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes</title>
+    <link rel="stylesheet" href="/recipes.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Quickly</h1>
+
+        <form action="/submit" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              id="ingredientInput"
+              name="ingredients"
+              placeholder="Enter Here..."
+            />
+          </div>
+        </form>
+      </header>
+
+      <section id="content">
+        <h2>You Can Make <%= (meals && meals.length) || 0 %> Recipes</h2>
+
+        <section id="recipes">
+          <% if (meals && meals.length > 0) { %>
+          <ul id="recipesContainer">
+            <% meals.forEach(meal => { %>
+            <li id="recipeCards">
+              <h3><%= meal.strMeal %></h3>
+              <img
+                src="<%= meal.strMealThumb %>"
+                alt="<%= meal.strMeal %>"
+                width="200"
+              />
+
+              <p>Ingredients you have: <%= meal.hasIngredients %></p>
+              <ul class="has list">
+                <% if (meal.ingredients && Array.isArray(meal.ingredients)) { %>
+                <% meal.ingredients.forEach(ingredient => { %> <% if
+                (userIngredients.includes(ingredient)) { %>
+                <li><%= ingredient %></li>
+                <% } %> <% }); %> <% } else { %>
+                <li>No ingredients found.</li>
+                <% } %>
+              </ul>
+
+              <p>Ingredients you need: <%= meal.needsIngredients %></p>
+              <ul class="needs list">
+                <% if (meal.ingredients && Array.isArray(meal.ingredients)) { %>
+                <% meal.ingredients.forEach(ingredient => { %> <% if
+                (!userIngredients.includes(ingredient)) { %>
+                <li><%= ingredient %></li>
+                <% } %> <% }); %> <% } else { %>
+                <li>No missing ingredients found.</li>
+                <% } %>
+              </ul>
+            </li>
+            <% }); %>
+          </ul>
+          <% } else { %>
+          <p>No recipes found with your ingredients.</p>
+          <% } %>
+        </section>
+      </section>
+    </main>
+
+    <aside>
+      <article class="protein card">
+        <h3>Proteins</h3>
+        <p><%= categorizedIngredients.Proteins.length%> Ingredients</p>
+        <ul id="protein-list">
+          <% categorizedIngredients.Proteins.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Proteins" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+
+      <article class="vegetable card">
+        <h3>Vegetables</h3>
+        <p>0 Ingredients</p>
+        <ul id="vegetable-list">
+          <% categorizedIngredients.Vegetables.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Vegetables" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+
+      <article class="carbohydrate card">
+        <h3>Carbohydrates</h3>
+        <p>0 Ingredients</p>
+        <ul id="carbohydrate-list">
+          <% categorizedIngredients.Carbohydrates.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Carbohydrates" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+
+      <article class="aromatics card">
+        <h3>Aromatics</h3>
+        <p>0 Ingredients</p>
+        <ul id="aromatics-list">
+          <% categorizedIngredients.Aromatics.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Aromatics" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+
+      <article class="seasoning card">
+        <h3>Seasonings</h3>
+        <p>0 Ingredients</p>
+        <ul id="seasonings-list">
+          <% categorizedIngredients.Seasonings.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Seasonings" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+
+      <article class="fat card">
+        <h3>Oils & Fats</h3>
+        <p>0 Ingredients</p>
+        <ul id="fat-list">
+          <% categorizedIngredients.Fats.forEach(ingredient => { %>
+          <li>
+            <%= ingredient %>
+            <form action="/delete-ingredient" method="POST" class="deleteForm">
+              <input
+                type="hidden"
+                name="ingredient"
+                value="<%= ingredient %>"
+              />
+              <input type="hidden" name="category" value="Fats" />
+              <button type="submit" class="deleteBtn">x</button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
+      </article>
+    </aside>
+
+    <script src="main.js"></script>
+  </body>
+</html>

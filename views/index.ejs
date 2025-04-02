@@ -3,9 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Recipe & Nutrition Finder</title>
+    <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
-    <h1>test</h1>
+    <header>
+      <h1>Quickly</h1>
+      <form action="/search" method="POST">
+        <input
+          type="text"
+          name="ingredient"
+          placeholder="Enter an Ingredient!"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </header>
+
+    <main></main>
+
+    <% if (error) { %>
+    <p class="error"><%= error %></p>
+    <% } %> <% if (meals) { %>
+    <h2>Recipes</h2>
+    <div class="meals-container">
+      <% meals.forEach(meal => { %>
+      <div class="meal-card">
+        <img src="<%= meal.strMealThumb %>" alt="<%= meal.strMeal %>" />
+        <h3><%= meal.strMeal %></h3>
+      </div>
+      <% }); %>
+    </div>
+    <% } %> <% if (nutrition && nutrition.length > 0) { %>
+    <h2>Nutrition Facts</h2>
+    <table class="nutrition-table">
+      <tr>
+        <th>Food</th>
+        <th>Calories</th>
+        <th>Protein (g)</th>
+        <th>Carbs (g)</th>
+        <th>Fat (g)</th>
+      </tr>
+      <% nutrition.forEach(item => { %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.calories %></td>
+        <td><%= item.protein_g %></td>
+        <td><%= item.carbohydrates_total_g %></td>
+        <td><%= item.fat_total_g %></td>
+      </tr>
+      <% }); %>
+    </table>
+    <% } %>
   </body>
 </html>
